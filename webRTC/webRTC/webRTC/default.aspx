@@ -36,8 +36,8 @@
 
     <div class="container">
         <h1>Getting Started</h1>
-        <p>In one tab open up the <a href="/Client">Client</a></p>
-        <p>In another tab open up the <a href="/Admin">Admin</a></p>
+        <p>In one tab open up the <a href="Client">Client</a></p>
+        <p>In another tab open up the <a href="Admin">Admin</a></p>
     </div>
     <!-- /container -->
 

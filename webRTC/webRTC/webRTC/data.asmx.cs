@@ -105,9 +105,9 @@ namespace webRTC
         }
         #endregion
 
-        #region "Get List Of Sessions"
+        #region "Get List Of Open Sessions"
         [Serializable()]
-        public class SessionGetListReply : BaseReply
+        public class SessionGetOpenReply : BaseReply
         {
             public List<Session> video;
             public List<Session> text;
@@ -125,9 +125,9 @@ namespace webRTC
          */ 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public SessionGetListReply SessionGetList()
+        public SessionGetOpenReply SessionGetOpen()
         {
-            SessionGetListReply reply = new SessionGetListReply();
+            SessionGetOpenReply reply = new SessionGetOpenReply();
             reply.video = new List<Session>();
             reply.text = new List<Session>();
             try
@@ -155,6 +155,50 @@ namespace webRTC
                         guid = System.IO.Path.GetFileName(f),
                         name = readText
                     });
+                }
+            }
+            catch (Exception ex)
+            {
+                reply.error += "\n" + ex.Message;
+                reply.successful = false;
+            }
+
+            return reply;
+        }
+        #endregion
+
+
+        #region "Claim A Sessions"
+        [Serializable()]
+        public class SessionGetOpenRequest
+        {
+            public string session;
+            public bool isvideo;
+        }
+      
+
+        /*
+         * Admin calls this to get a list of open session
+         * They are sent a list of names|guids
+         */
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public BaseReply SessionClaimOpen(SessionGetOpenRequest request)
+        {
+            BaseReply reply = new BaseReply(); 
+            try
+            {
+                string filepath;
+                if (request.isvideo) {
+                   filepath  = System.Web.HttpRuntime.AppDomainAppPath + "Sessions\\Video\\";
+                } else {
+                     filepath = System.Web.HttpRuntime.AppDomainAppPath + "Sessions\\Text\\";
+                }
+                filepath += request.session;
+
+                if (File.Exists(filepath))
+                {
+                    File.Delete(filepath);
                 }
             }
             catch (Exception ex)

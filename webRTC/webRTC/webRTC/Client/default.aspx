@@ -76,7 +76,9 @@
         </div>
     </div>
     <script src="../Scripts/jquery-1.8.2.min.js"></script>
-    <script src="../Scripts/jquery.signalR-0.5.2.js"></script>
+    <script src="../Scripts/jquery.signalR-0.5.3.js"></script>
+    <%--<script src="../signalr/hubs"></script>--%>
+    <script type="text/javascript" src='<%= ResolveClientUrl("~/signalr/hubs") %>'></script>
     <script src="client.js"></script>
 </body>
 </html>

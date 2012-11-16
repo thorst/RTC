@@ -1,6 +1,68 @@
 ﻿/// <reference path="../Scripts/jquery-1.8.2.js" />
 
+var
+    hub = null
+    , iceindex = 1
+    , pc2 =null
+    , remoteStream
+    , servers
+;
+
+
+pc2 = new webkitRTCPeerConnection(servers);
+pc2.onicecandidate = iceCallback2;
+pc2.onaddstream = gotRemoteStream;
+
+function iceCallback2(event) {
+    if (event.candidate) {
+        hub.addIce(session, JSON.stringify(event.candidate), iceindex);
+        console.log("Sent Ice #" + iceindex);
+        iceindex++;
+    }
+}
+
+function gotRemoteStream(e) {
+    console.log("Received remote stream");
+    remoteStream = e.stream;
+    waitForRemoteVideo();
+
+}
+function waitForRemoteVideo() {
+    // console.log("waitForRemoteVideo");
+    // console.log(remoteStream);
+    // if (remoteStream.videoTracks.length === 0 || remoteVideo.currentTime > 0) {
+    setTimeout(function () { vid2.src = webkitURL.createObjectURL(remoteStream); }, 1000);
+    //} else {
+    //   setTimeout(waitForRemoteVideo, 100);
+    // }
+}
+function gotDescription2(desc) {
+    pc2.setLocalDescription(desc);
+
+    AdminDesc = desc;
+
+    console.log('Answer from pc2');
+    hub.addAnswer(session, JSON.stringify(desc));
+}
+
+function start() {
+    console.log("Requesting local stream");
+    navigator.webkitGetUserMedia(
+            { audio: true, video: true },
+            function (stream) {
+                console.log("Received local stream");
+                vid1.src = webkitURL.createObjectURL(stream);
+                // localstream = stream;
+                pc2.addStream(stream);                             //Add the stream
+                console.log("Adding Local Stream to peer connection");
+
+            },
+            function () { }
+        );
+}
+
 var session = {
+    token: null,
     start: function (isvideo) {
         var request = {
             name: $("#name").val()
@@ -21,7 +83,9 @@ var session = {
             if (data.successful == null || !data.successful) {
                 return;
             }
-            alert('done');
+            session.token = data.session;
+            $("#login").hide();
+            $("#video").show();
         });
     }
 };
@@ -84,6 +148,6 @@ $(function () {
     $.connection.hub.start().done(function () {
         hub.joinSession(session);
 
-        setTimeout(start(), 1);
+        start();
     });
 });
