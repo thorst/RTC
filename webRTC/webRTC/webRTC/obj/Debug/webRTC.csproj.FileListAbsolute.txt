@@ -1,0 +1,14 @@
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\webRTC.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\webRTC.pdb
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\Newtonsoft.Json.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\SignalR.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\SignalR.Hosting.AspNet.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\SignalR.Hosting.Common.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\Newtonsoft.Json.xml
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\SignalR.xml
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\SignalR.Hosting.AspNet.xml
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\bin\SignalR.Hosting.Common.xml
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\obj\Debug\webRTC.csprojResolveAssemblyReference.cache
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\obj\Debug\webRTC.dll
+C:\Users\thorst02\Documents\GitHub\oRTC\webRTC\webRTC\webRTC\obj\Debug\webRTC.pdb
