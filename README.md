@@ -7,6 +7,9 @@
 You can read more at [webrtc's official project page](http://www.webrtc.org/blog). 
 You can read more about firefox's implementation at [this blog](http://mozillamediagoddess.org/category/webrtc/)
 
+* http://blog.chromium.org/search/label/webrtc
+* http://blog.chromium.org/2012/04/chromes-webrtc-roadmap.html
+
 ######Do you have other links? Please submit them to me.
 
 * GetUserMedia()- Ability to access Camera and Mic
@@ -59,7 +62,7 @@ Below are the scenarios I test. The ones in bold are currently **_NOT_** working
 * Same pc
 * 2 pcs both work network
 * 2 pcs both home network
-* **2 pcs different 3g verizon air cards**
+* **2 pcs different 3g verizon air cards (no routers)**
 * **2 pcs 1 on home (verizon dsl internet), 1 on work network**
 * **2 pcs 1 on home (verizon dsl internet), 1 on inlaws (comcast cable internet)**
 
