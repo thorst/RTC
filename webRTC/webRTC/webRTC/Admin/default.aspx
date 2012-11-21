@@ -5,7 +5,7 @@
 <html lang="en">
 <head id="Head1" runat="server">
     <meta charset="utf-8" />
-    <title>Client</title>
+    <title>Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <%--This wasnt stretching the buttons to fit the text inside. Havent checked into why--%>

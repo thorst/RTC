@@ -15,7 +15,7 @@ pc2.onaddstream = gotRemoteStream;
 
 function iceCallback2(event) {
     if (event.candidate) {
-        hub.addIce(session, JSON.stringify(event.candidate), iceindex);
+        hub.addIce(session.token, JSON.stringify(event.candidate), iceindex);
         console.log("Sent Ice #" + iceindex);
         iceindex++;
     }
@@ -42,7 +42,7 @@ function gotDescription2(desc) {
     AdminDesc = desc;
 
     console.log('Answer from pc2');
-    hub.addAnswer(session, JSON.stringify(desc));
+    hub.addAnswer(session.token, JSON.stringify(desc));
 }
 
 function start() {
@@ -85,7 +85,11 @@ var session = {
             }
             session.token = data.session;
             $("#login").hide();
-            $("#video").show();
+            $("#videoCont").removeClass("hide");
+            //alert($("#video").attr('class'))
+            hub.joinSession(session.token);
+
+            start();
         });
     }
 };
@@ -100,7 +104,7 @@ $(function () {
             alert("Need a name");
             return false;
         }
-
+        $("#User").html("User::" + $.trim($("#name").val()));
 
         //Get session guid
         session.start(true);
@@ -146,8 +150,6 @@ $(function () {
 
     //Start socket server, then start the video conf
     $.connection.hub.start().done(function () {
-        hub.joinSession(session);
-
-        start();
+        
     });
 });

@@ -35,6 +35,7 @@
                     <span class="icon-bar"></span>
                 </a>
                 <a class="brand" href="#">oRTC</a>
+                <span id="User"></span>
                 <%--<div class="nav-collapse collapse">
                 <ul class="nav">
                   <li class="active"><a href="#">Home</a></li>
@@ -67,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div id="video" class="hide container">
+    <div id="videoCont" class="hide container">
         <div class="row-fluid">
             <div class="span12" style="position: relative">
                 <video id="vid2" autoplay style="width: 100%;"></video>
